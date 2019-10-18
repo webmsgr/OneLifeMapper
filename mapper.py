@@ -22,7 +22,7 @@ def main():
 def worker(): # takes packets from server, parses map chunks, converts to MapChunks and sends them to caller
     pass
 def zlib_decompress(data):
-    pass
+    return zlib.decompress(data)
 def parser_worker(data): # parses map chunks
     pass 
 

@@ -6,8 +6,12 @@ import argparse
 
 
 class MapChunk: 
-    def __init__(self,data=[[]],lx=0,ly=0):
+    def __init__(self,data=[[]],x=0,y=0):
         self.data = data
+        self.x = x
+        self.y = y
+        self.ly = len(data)
+        self.lx = len(data[0])
     def get(x,y):
         return self.data[y][x]
     def set(x,y,data):

@@ -1,5 +1,5 @@
 import mitm
-import multiprocessing
+import multiprocessing as mp
 import zlib
 
 class MapChunk: 

@@ -19,3 +19,6 @@ class MapChunk:
   
 def main():
     pass
+
+def parser_worker(): # parses map chunks
+    pass 

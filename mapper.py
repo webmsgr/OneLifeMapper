@@ -1,8 +1,6 @@
-# @todo add map program
 import mitm
 import multiprocessing
 import zlib
-
 
 class MapChunk: 
     def __init__(self,data=[[]],lx=0,ly=0):

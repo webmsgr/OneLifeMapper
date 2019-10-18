@@ -6,8 +6,12 @@ import threading
 
 
 def main(saddr,cadder,outpipe): # receves packets and sends them to the caller
-    pass
-
+    wk,data = mp.Pipe()
+    server_worker_thread = threading.Thread(action=server_worker,args=(saddr,caddr,wk))
+    server_worker_thread.start()
+    while server_worker_thread.is_alive():
+        if data.poll():
+            outpipe.send(data.recv())
 
 def server_worker(saddr,caddr,outpipe): # communicates with server/client
     pass

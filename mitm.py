@@ -5,15 +5,16 @@ import multiprocessing as mp
 import threading
 
 
-def main(saddr,cadder,outpipe): # receves packets and sends them to the caller
+def main(saddr,cport,outpipe): # receves packets and sends them to the caller
     wk,data = mp.Pipe()
-    server_worker_thread = threading.Thread(target=server_worker,args=(saddr,caddr,wk))
+    sname,sport = saddr.split(":")
+    server_worker_thread = threading.Thread(target=server_worker,args=(sname,sport,cport,wk))
     server_worker_thread.start()
     while server_worker_thread.is_alive():
         if data.poll():
             outpipe.send(data.recv())
 
-def server_worker(saddr,caddr,outpipe): # communicates with server/client
+def server_worker(sname,sport,cport,outpipe): # communicates with server/client
     pass
 
 

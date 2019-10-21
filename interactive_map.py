@@ -28,4 +28,6 @@ def main(windowsize,tilepipe,OHOLMap):
         spriteid = os.path.basename(sprite).split(".")[0]
         loadedsprites[spriteid] = pygame.image.load(sprite)
         
-    
+    # do other loading things...
+    tilepipe.send("READY")
+    # main loop goes here

@@ -1,5 +1,7 @@
 import pygame
 import math
+import glob
+import os
 tilesize = 128 # pixels per tile
 
 def tiletosurface(tile):
@@ -18,4 +20,12 @@ def main(windowsize,tilepipe,OHOLMap):
                     break
                 cx,cy = x,y
                 first = False
-    pass
+    print("Loading sprites")
+    sprites = glob.glob("./OneLifeData/sprites/*.tga")
+    loadedsprites = {}
+    print("Found {} sprites, loading...".format(len(sprites)))
+    for sprite in sprites:
+        spriteid = os.path.basename(sprite).split(".")[0]
+        loadedsprites[spriteid] = pygame.image.load(sprite)
+        
+    

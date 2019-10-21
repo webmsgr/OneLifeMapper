@@ -100,7 +100,7 @@ if __name__ == "__main__":
     parser.add_argument("--port",help= "The port to host the server on",default="8007")
     parser.add_argument("-o",help="Where to output map chunks to")
     parser.add_argument("-i",help="Where to output a image of the map")
-    parser.add_argument("--interactive",help="Allow for viewing of map in a pygame window")
+    parser.add_argument("--interactive",help="Allow for viewing of map in a pygame window",action="store_true")
     data = parser.parse_args()
 # flow
 # func name in []

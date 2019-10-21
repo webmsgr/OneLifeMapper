@@ -88,7 +88,7 @@ class MapChunk:
   
 def main():
     pass
-def worker(): # takes packets from server, parses map chunks, converts to MapChunks and sends them to caller
+def worker(): # takes packets from server, parses map chunks, converts to Tiles and sends them to caller
     pass
 def zlib_decompress(data):
     return zlib.decompress(data)

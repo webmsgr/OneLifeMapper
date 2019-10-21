@@ -9,4 +9,11 @@ def maptosurface(sx,sy,ex,ey,oholmap):
 
 def main(windowsize,tilepipe,OHOLMap):
     cx,cy,first = 0,0,True
+    if OHOLMap.data != {}:
+       for x in OHOLMap.data:
+           for y in OHOLMap.data[x]:
+                if not first:
+                    break
+                cx,cy = x,y
+                first = False
     pass

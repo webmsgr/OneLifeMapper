@@ -96,10 +96,11 @@ def parser_worker(data): # parses map chunks
     pass 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--server",help = "The address of the server in hostname:port formst",default="server1.onehouronelife.com:8006")
+    parser.add_argument("--server",help = "The address of the server in hostname:port format",default="server1.onehouronelife.com:8006")
     parser.add_argument("--port",help= "The port to host the server on",default="8007")
     parser.add_argument("-o",help="Where to output map chunks to")
     parser.add_argument("-i",help="Where to output a image of the map")
+    parser.add_argument("--interactive",help="Allow for viewing of map in a pygame window")
     data = parser.parse_args()
 # flow
 # func name in []

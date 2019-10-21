@@ -5,8 +5,9 @@ import argparse
 
 
 class Tile:
-    def __init__(self,data="0 0 0 0 0"):
+    def __init__(self,data="0 0 0 0 0",dovis=1):
         self.data = data
+        self.dovis = dovis
         parsed = data.split(" ")
         self.x = parsed[0]
         self.y = parsed[1]
@@ -59,7 +60,7 @@ class OHOLMap:
             self.data[x] = {}
             self.data[x][y] = tile
     def blanktile(self,x,y):
-        return Tile("{0} {0} 0 0 0".format(x,y))
+        return Tile("{0} {1} 0 0 0".format(x,y),0)
     def gettile(self,x,y):
         if x in self.data:
             if y in self.data[x]:

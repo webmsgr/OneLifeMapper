@@ -6,6 +6,7 @@ def test_mapfile():
     cache = {}
     for loc in data:
         x,y,biome,floor,ontop = loc.split(" ")
+        print(x,y,biome,floor)
         if "," in ontop:
             things = ontop.split(",")
             print("container: {}".format(things.pop(0)))
@@ -19,8 +20,6 @@ def test_mapfile():
                     print("    has: {}".format(item))
         else:
             print("item:{}".format(ontop))
-       
-                  
-                  
+   
     
-    
+test_mapfile()

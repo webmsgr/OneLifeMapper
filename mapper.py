@@ -66,7 +66,8 @@ class OHOLMap:
             if y in self.data[x]:
                 return self.data[x][y]
         return self.blanktile(x,y)
-        
+    def applytile(self,tile):
+        self.settile(tile.x,tile.y,tile)
 
 class MapChunk: 
     def __init__(self,data=[[]],x=0,y=0):

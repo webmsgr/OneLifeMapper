@@ -8,4 +8,5 @@ def maptosurface(sx,sy,ex,ey,oholmap):
     pass
 
 def main(windowsize,tilepipe,OHOLMap):
+    cx,cy,first = 0,0,True
     pass

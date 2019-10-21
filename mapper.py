@@ -34,8 +34,38 @@ class Tile:
             out = (on,[])
         self.contained = out
 
+def read_tutorial():
+    tiles = {}
+    lines = open("OneLifeData/tutorialMaps/tutorial1.txt").read().split("\n")
+    for line in lines:
+        if line.strip() == "":
+            continue
+        temp = Tile(line)
+        if temp.x in tiles:
+            tiles[temp.x][temp.y] = temp
+        else:
+            tiles[temp.x] = {}
+            tiles[temp.x][temp.y] = temp
+    return OHOLMap(tiles)
 
 
+class OHOLMap:
+    def __init__(self,data={}):
+        self.data = data
+    def settile(self,x,y,tile):
+        if x in self.data:
+            self.data[x][y] = tile
+        else:
+            self.data[x] = {}
+            self.data[x][y] = tile
+    def blanktile(self,x,y):
+        return Tile("{0} {0} 0 0 0".format(x,y))
+    def gettile(self,x,y):
+        if x in self.data:
+            if y in self.data[x]:
+                return self.data[x][y]
+        return blanktile(x,y)
+        
 
 class MapChunk: 
     def __init__(self,data=[[]],x=0,y=0):

@@ -64,7 +64,7 @@ class OHOLMap:
         if x in self.data:
             if y in self.data[x]:
                 return self.data[x][y]
-        return blanktile(x,y)
+        return self.blanktile(x,y)
         
 
 class MapChunk: 

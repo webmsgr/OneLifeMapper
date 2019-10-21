@@ -1,0 +1,7 @@
+Grass
+Swamp
+Yellow
+Gray
+Snow
+Desert
+Jungle

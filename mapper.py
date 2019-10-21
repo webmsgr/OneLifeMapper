@@ -4,6 +4,38 @@ import zlib
 import argparse
 
 
+class Tile:
+    def __init__(self,data="0 0 0 0 0"):
+        self.data = data
+        parsed = data.split(" ")
+        self.x = parsed[0]
+        self.y = parsed[1]
+        self.biome = parsed[2]
+        self.floor = parsed[3]
+        self.contained = []
+        on = parsed[4]
+        out = []
+        if "," in on:
+            temp = []
+            inside = on.split(",")
+            container = inside.pop(0)
+            for item in inside:
+                if ";" in item:
+                    temp2 = []
+                    inside2 = item.split(";")
+                    container2 = inside2.pop(0)
+                    for item2 in inside2:
+                        temp2.append(item2)
+                    temp.append((container2,temp2))
+                else: 
+                    temp.append(item)
+            out = (container,temp)
+        else:
+            out = (on,[])
+        self.contained = out
+
+
+
 
 class MapChunk: 
     def __init__(self,data=[[]],x=0,y=0):
@@ -12,13 +44,13 @@ class MapChunk:
         self.y = y
         self.ly = len(data)
         self.lx = len(data[0])
-    def get(x,y):
+    def get(self,x,y):
         return self.data[y][x]
-    def set(x,y,data):
+    def setitem(self,x,y,data):
         self.data[y][x] = data
-    def setrow(y,data):
+    def setrow(self,y,data):
         self.data[y] = data
-    def setcol(x,data):
+    def setcol(self,x,data):
         for n,data in enumerate(data):
             self.set(x,n,data)
     def __iter__(self):

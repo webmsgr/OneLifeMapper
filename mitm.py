@@ -28,7 +28,7 @@ def Server(pipe,msocket): # copied from bot, communicates
                 pipe.send(buf)
             if pipe.poll() and msocket in write:
                 msocket.send(pipe.recv())
-             if msocket in error:
+            if msocket in error:
                 break
         except:
             break
